@@ -23,26 +23,23 @@ let currentDisplay = () => {
 
 numbers.forEach((btn) => {
     btn.addEventListener('click', () => {
-        if (firstOperand == null) {
-            firstOperand = parseInt(btn.textContent);
-            screen.textContent = firstOperand;
-        } else if (operator == null) {
-            secondOperand = parseInt(btn.textContent);
-            addToScreen(currentDisplay(), secondOperand);
-        } else if (secondOperand == null) {
-            secondOperand = parseInt(btn.textContent);
-            screen.textContent = secondOperand;
+        let digit = parseInt(btn.textContent);
+        if (parseInt(currentDisplay()) == 0) {
+            screen.textContent = digit;
         } else {
-            secondOperand = parseInt(btn.textContent);
-            addToScreen(currentDisplay(), secondOperand);
+            addToScreen(currentDisplay(), digit);
+        }
+        if (operator == null) {
+            firstOperand = parseInt(currentDisplay());
+        } else {
+            secondOperand = parseInt(currentDisplay());
         }
     });
 });
 
 operation.forEach((btn) => {
     btn.addEventListener('click', () => {
-        firstOperand = parseInt(screen.textContent);
-        secondOperand = null;
+        screen.textContent = "";
         if (operator == null) {
             operator = btn.textContent;
         }
@@ -57,7 +54,6 @@ ac.addEventListener('click', () => {
 })
 
 equal.addEventListener('click', () => {
-    secondOperand = parseInt(screen.textContent);
     calculate(firstOperand, secondOperand, operator);
 });
 
@@ -81,3 +77,4 @@ function calculate(firstOperand, secondOperand, operator) {
             break;
     }
 }
+
