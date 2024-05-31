@@ -55,6 +55,8 @@ ac.addEventListener('click', () => {
 
 equal.addEventListener('click', () => {
     calculate(firstOperand, secondOperand, operator);
+    firstOperand = result;
+    operator = null;
 });
 
 function calculate(firstOperand, secondOperand, operator) {
