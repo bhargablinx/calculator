@@ -29,16 +29,20 @@ numbers.forEach((btn) => {
         } else if (operator == null) {
             secondOperand = parseInt(btn.textContent);
             addToScreen(currentDisplay(), secondOperand);
-        } else {
-            firstOperand = parseInt(screen.textContent);
+        } else if (secondOperand == null) {
             secondOperand = parseInt(btn.textContent);
             screen.textContent = secondOperand;
+        } else {
+            secondOperand = parseInt(btn.textContent);
+            addToScreen(currentDisplay(), secondOperand);
         }
     });
 });
 
 operation.forEach((btn) => {
     btn.addEventListener('click', () => {
+        firstOperand = parseInt(screen.textContent);
+        secondOperand = null;
         if (operator == null) {
             operator = btn.textContent;
         }
@@ -53,6 +57,7 @@ ac.addEventListener('click', () => {
 })
 
 equal.addEventListener('click', () => {
+    secondOperand = parseInt(screen.textContent);
     calculate(firstOperand, secondOperand, operator);
 });
 
