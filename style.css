@@ -1,0 +1,37 @@
+body {
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: rgb(43, 43, 43);
+    border-radius: 9px;
+    width: 400px;
+    height: 600px;
+    margin: auto;
+    margin-top: 200px;
+    padding: 20px;
+}
+
+.screen {
+    background-color: grey;
+    width: auto;
+    height: 100px;
+    margin: auto;
+    border: 1px solid white;
+}
+
+.numpad {
+    width: auto;
+    height: 500px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-row {
+    border: 1px solid black;
+    width: auto;
+    height: 20px;
+    flex: 1;
+    margin: 1px;
+}
