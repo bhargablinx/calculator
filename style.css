@@ -1,23 +1,25 @@
 body {
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 .container {
     background-color: rgb(43, 43, 43);
     border-radius: 9px;
     width: 400px;
-    height: 600px;
+    height: 620px;
     margin: auto;
     margin-top: 200px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .screen {
     background-color: grey;
     width: auto;
-    height: 100px;
+    height: 120px;
     margin: auto;
     border: 1px solid white;
+    border-radius: 9px;
 }
 
 .numpad {
@@ -26,12 +28,42 @@ body {
     background-color: white;
     display: flex;
     flex-direction: column;
+    background-color: black;
 }
 
 .container-row {
-    border: 1px solid black;
     width: auto;
     height: 20px;
     flex: 1;
+    display: flex;
+}
+
+button {
+    flex: 1;
     margin: 1px;
+    border-radius: 8px;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.container-for-0 {
+    flex: 1;
+    display: flex;
+}
+
+.container-for-2-btn {
+    flex: 1;
+    display: flex;
+}
+
+.num {
+    background-color: #217c7e;
+}
+
+.cal {
+    background-color: #ff8f1f;
+}
+
+.special {
+    background-color: #1e90ff;
 }
