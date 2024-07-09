@@ -16,7 +16,12 @@ function calculator() {
             } else if (item.textContent === 'AC') {
                 AC();
             } else if(item.classList[1] === 'operation' && num1 != undefined) {
+                console.log('Operation clicked', item.textContent);
+                if (op != undefined) {
+                    num1 = parseInt(screen.textContent);
+                }
                 op = item.textContent;
+                screen.textContent = 0;
             } else if(item.classList[1] === 'equal') {
                 equal();
             }
@@ -39,6 +44,10 @@ function updateScreen(currentDigit) {
             num2 = parseInt(screen.textContent);
     } else {
         screen.textContent = currentDigit;
+        if (op == undefined)
+            num1 = parseInt(screen.textContent);
+        else 
+            num2 = parseInt(screen.textContent);
     }
 }
 
@@ -54,15 +63,19 @@ function equal() {
     switch(op) {
         case '+':
             console.log(num1 + num2);
+            screen.textContent = num1 + num2;
             break;
         case '-':
             console.log(num1 - num2);
+            screen.textContent = num1 - num2;
             break;
         case 'x':
             console.log(num1 * num2);
+            screen.textContent = num1 * num2;
             break;
-        case 'x':
+        case '÷':
             console.log(num1 / num2);
+            screen.textContent = num1 / num2;
             break;
     }
 }
