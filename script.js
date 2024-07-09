@@ -63,21 +63,26 @@ function equal() {
     switch(op) {
         case '+':
             console.log(num1 + num2);
-            screen.textContent = num1 + num2;
+            showResultInScreen(num1 + num2);
             break;
         case '-':
             console.log(num1 - num2);
-            screen.textContent = num1 - num2;
+            showResultInScreen(num1 - num2);
             break;
         case 'x':
             console.log(num1 * num2);
-            screen.textContent = num1 * num2;
+            showResultInScreen(num1 * num2);
             break;
         case '÷':
             console.log(num1 / num2);
-            screen.textContent = num1 / num2;
+            showResultInScreen(num1 / num2);
             break;
     }
+} function showResultInScreen(result) {
+    if (result < 1 && result > 0)
+        screen.textContent = Number(result.toFixed(10));
+    else
+        screen.textContent = result;
 }
 
 calculator();
