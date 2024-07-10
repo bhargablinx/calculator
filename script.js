@@ -34,9 +34,10 @@ function updateScreen(currentDigit) {
         console.log('max limit exceeded');
         return;
     }
-    if (previousDigit !== '0' && previousDigit !== '0.' || currentDigit === '.') {
+    if (previousDigit !== '0' || currentDigit === '.') {
         // Prevent multiple decimal points in a single number
         if (currentDigit === '.' && previousDigit.includes('.')) {
+            console.log('multiple decimal is illegal');
             return;
         }
         screen.textContent = `${previousDigit}${currentDigit}`;
