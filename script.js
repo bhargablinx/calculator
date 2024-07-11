@@ -23,12 +23,26 @@ function calculator() {
                 screen.textContent = '0';
             } else if(item.classList.contains('equal')) {
                 equal();
-            } else if(item.classList.contains('percentage')) {
+            } else if(item.classList.contains('percentage')) { // for %
                 if (num1 === undefined) {
-                    screen.textContent = 'error'
+                    screen.textContent = '0'
+                    console.log('please enter a number first');
                 } else {
                     num1 = num1 / 100;
                     screen.textContent = num1;
+                }
+            } else if(item.classList.contains('reverse-sign')) { // for +/-
+                if (num1 === undefined) {
+                    screen.textContent = '0'
+                    console.log('please enter a number first');
+                } else {
+                    if (num2 === undefined) {
+                        (num1 > 0) ? (screen.textContent = `-${num1}`) : (screen.textContent = `${num1}`)
+                        num1 = parseInt(screen.textContent);
+                    } else {
+                        (num2 > 0) ? (screen.textContent = `-${num2}`) : (screen.textContent = `${num2}`)
+                        num1 = parseInt(screen.textContent);
+                    }
                 }
             }
         });
