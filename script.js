@@ -23,6 +23,13 @@ function calculator() {
                 screen.textContent = '0';
             } else if(item.classList.contains('equal')) {
                 equal();
+            } else if(item.classList.contains('percentage')) {
+                if (num1 === undefined) {
+                    screen.textContent = 'error'
+                } else {
+                    num1 = num1 / 100;
+                    screen.textContent = num1;
+                }
             }
         });
     });
