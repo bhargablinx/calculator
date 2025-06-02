@@ -6,6 +6,7 @@ let num2 = 0;
 let operator = "";
 let opSymbol = "";
 let result = 0;
+let isDecimalClicked = false;
 
 // CAPTURING NUMBERS PRESSED
 document.querySelectorAll(".num").forEach((item) => {
@@ -22,7 +23,12 @@ document.querySelectorAll(".num").forEach((item) => {
 
 // CAPTURING DOT
 document.querySelector(".decimal-point").addEventListener("click", (e) => {
-    console.log(e.target.textContent.trim());
+    if (isDecimalClicked) {
+        return;
+    } else {
+        screen.textContent += e.target.textContent.trim();
+    }
+    isDecimalClicked = true;
 });
 
 // CAPTURING EQUAL
@@ -72,6 +78,7 @@ document.querySelectorAll(".operation-btn").forEach((item) => {
 
 function clearScreen() {
     screen.textContent = "0";
+    isDecimalClicked = false;
 }
 
 function saveHistory() {
