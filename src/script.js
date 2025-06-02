@@ -62,11 +62,14 @@ document.querySelector(".percentage-btn").addEventListener("click", (e) => {
 // CAPTURING DELETE
 document.querySelector(".delete-btn").addEventListener("click", (e) => {
     let tmp = screen.textContent.trim();
-    tmp = tmp.split("");
-    tmp.pop();
-    tmp = tmp.join("");
-    numHolder = Number(tmp);
-    screen.textContent = tmp;
+    if (tmp.length === 1) {
+        screen.textContent = "0";
+        numHolder = 0;
+    } else {
+        tmp = tmp.slice(0, -1);
+        screen.textContent = tmp;
+        numHolder = Number(tmp);
+    }
 });
 
 // CAPTURING OPERATION
