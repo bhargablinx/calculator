@@ -61,7 +61,12 @@ document.querySelector(".percentage-btn").addEventListener("click", (e) => {
 
 // CAPTURING DELETE
 document.querySelector(".delete-btn").addEventListener("click", (e) => {
-    console.log("delete from screen");
+    let tmp = screen.textContent.trim();
+    tmp = tmp.split("");
+    tmp.pop();
+    tmp = tmp.join("");
+    numHolder = Number(tmp);
+    screen.textContent = tmp;
 });
 
 // CAPTURING OPERATION
