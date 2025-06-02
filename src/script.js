@@ -66,7 +66,7 @@ document.querySelectorAll(".operation-btn").forEach((item) => {
         operator = e.target.value;
         opSymbol = e.target.textContent.trim();
         clearScreen();
-        // saveHistory();
+        saveHistory();
     });
 });
 
@@ -75,7 +75,11 @@ function clearScreen() {
 }
 
 function saveHistory() {
-    historyScreen.textContent = `${num1} ${opSymbol} ${num2}`;
+    if (result !== 0) {
+        historyScreen.textContent = `${num1} ${opSymbol} ${num2}`;
+    } else {
+        historyScreen.textContent = `${num1} ${opSymbol}`;
+    }
 }
 
 function calculate() {
