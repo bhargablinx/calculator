@@ -47,11 +47,16 @@ document.querySelector(".clear-btn").addEventListener("click", (e) => {
     num1 = 0;
     num2 = 0;
     operator = "";
+    historyScreen.textContent = "";
+    numHolder = 0;
+    opSymbol = "";
+    result = 0;
 });
 
 // CAPTURING PERCENTAGE
 document.querySelector(".percentage-btn").addEventListener("click", (e) => {
-    console.log(e.target.textContent.trim());
+    numHolder = Number(screen.textContent) / 100;
+    screen.textContent = numHolder;
 });
 
 // CAPTURING DELETE
