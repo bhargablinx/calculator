@@ -1,8 +1,10 @@
 const screen = document.querySelector(".current-screen");
+const historyScreen = document.querySelector(".history");
 let numHolder = 0;
 let num1 = 0;
 let num2 = 0;
 let operator = "";
+let opSymbol = "";
 let result = 0;
 
 // CAPTURING NUMBERS PRESSED
@@ -30,6 +32,7 @@ document.querySelector(".equal-btn").addEventListener("click", (e) => {
     }
     console.log(`${num1} ${operator} ${num2} = ${calculate()}`);
     screen.textContent = result;
+    saveHistory();
 });
 
 // CAPTURING CLEAR
@@ -61,12 +64,18 @@ document.querySelectorAll(".operation-btn").forEach((item) => {
             num1 = numHolder;
         }
         operator = e.target.value;
+        opSymbol = e.target.textContent.trim();
         clearScreen();
+        // saveHistory();
     });
 });
 
 function clearScreen() {
     screen.textContent = "0";
+}
+
+function saveHistory() {
+    historyScreen.textContent = `${num1} ${opSymbol} ${num2}`;
 }
 
 function calculate() {
@@ -84,5 +93,6 @@ function calculate() {
             result = num1 / num2;
             break;
     }
+    result = parseFloat(result.toFixed(5));
     return result;
 }
