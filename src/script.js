@@ -29,6 +29,7 @@ document.querySelector(".equal-btn").addEventListener("click", (e) => {
         num2 = numHolder;
     }
     console.log(`${num1} ${operator} ${num2} = ${calculate()}`);
+    screen.textContent = result;
 });
 
 // CAPTURING CLEAR
@@ -52,7 +53,13 @@ document.querySelector(".delete-btn").addEventListener("click", (e) => {
 // CAPTURING OPERATION
 document.querySelectorAll(".operation-btn").forEach((item) => {
     item.addEventListener("click", (e) => {
-        num1 = numHolder;
+        if (result !== 0) {
+            num1 = result;
+            num2 = 0;
+            numHolder = 0;
+        } else {
+            num1 = numHolder;
+        }
         operator = e.target.value;
         clearScreen();
     });
