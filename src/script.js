@@ -2,7 +2,6 @@ const screen = document.querySelector(".current-screen");
 let numHolder = 0;
 let num1 = 0;
 let num2 = 0;
-let result = 0;
 let operator = "";
 
 // CAPTURING NUMBERS PRESSED
