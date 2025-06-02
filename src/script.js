@@ -3,6 +3,7 @@ let numHolder = 0;
 let num1 = 0;
 let num2 = 0;
 let operator = "";
+let result = 0;
 
 // CAPTURING NUMBERS PRESSED
 document.querySelectorAll(".num").forEach((item) => {
@@ -14,7 +15,6 @@ document.querySelectorAll(".num").forEach((item) => {
             screen.textContent += val;
         }
         numHolder = Number(screen.textContent);
-        console.log(numHolder, num1);
     });
 });
 
@@ -28,7 +28,7 @@ document.querySelector(".equal-btn").addEventListener("click", (e) => {
     if (operator !== "" || num1 !== 0) {
         num2 = numHolder;
     }
-    console.log(`${num1} ${operator} ${num2}`);
+    console.log(`${num1} ${operator} ${num2} = ${calculate()}`);
 });
 
 // CAPTURING CLEAR
@@ -53,11 +53,29 @@ document.querySelector(".delete-btn").addEventListener("click", (e) => {
 document.querySelectorAll(".operation-btn").forEach((item) => {
     item.addEventListener("click", (e) => {
         num1 = numHolder;
-        operator = e.target.textContent.trim();
+        operator = e.target.value;
         clearScreen();
     });
 });
 
 function clearScreen() {
     screen.textContent = "0";
+}
+
+function calculate() {
+    switch (operator) {
+        case "+":
+            result = num1 + num2;
+            break;
+        case "-":
+            result = num1 - num2;
+            break;
+        case "*":
+            result = num1 * num2;
+            break;
+        case "/":
+            result = num1 / num2;
+            break;
+    }
+    return result;
 }
