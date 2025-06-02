@@ -75,6 +75,11 @@ document.querySelector(".delete-btn").addEventListener("click", (e) => {
 // CAPTURING OPERATION
 document.querySelectorAll(".operation-btn").forEach((item) => {
     item.addEventListener("click", (e) => {
+        if (operator && numHolder !== 0) {
+            // If an operator exists and numHolder has a value
+            num2 = numHolder;
+            calculate(); // Compute the pending operation first
+        }
         if (result !== 0) {
             num1 = result;
             num2 = 0;
